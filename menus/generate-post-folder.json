@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-workspace": [
+      {
+        "label": "Generate Post Folder",
+        "command": "generate-post-folder:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "Generate Post Folder",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "generate-post-folder:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
