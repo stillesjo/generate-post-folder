@@ -1,2 +1,18 @@
 {
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "Post Folder Creator",
+          "submenu": [
+            {
+              "label": "Create new folder",
+              "command": "post-folder-creator:create"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

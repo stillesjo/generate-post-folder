@@ -5,7 +5,7 @@
   "description": "A short description of your package",
   "keywords": [],
   "activationCommands": {
-    "atom-workspace": "generate-post-folder:toggle"
+    "atom-workspace": "post-folder-creator:create"
   },
   "repository": "https://github.com/atom/generate-post-folder",
   "license": "MIT",

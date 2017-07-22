@@ -1,5 +1,5 @@
 {
   "atom-workspace": {
-    "ctrl-alt-o": "generate-post-folder:toggle"
+    "ctrl-alt-o": "post-folder-creator:create"
   }
 }
