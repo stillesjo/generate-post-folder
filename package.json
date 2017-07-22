@@ -1,13 +1,13 @@
 {
-  "name": "generate-post-folder",
-  "main": "./lib/generate-post-folder",
+  "name": "post-folder-creator",
+  "main": "./lib/post-folder-creator",
   "version": "0.0.0",
-  "description": "A short description of your package",
+  "description": "Easily create new md-posts in atom",
   "keywords": [],
   "activationCommands": {
     "atom-workspace": "post-folder-creator:create"
   },
-  "repository": "https://github.com/atom/generate-post-folder",
+  "repository": "https://github.com/stillesjo/post-folder-creator",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
