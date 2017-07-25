@@ -17,32 +17,38 @@ describe('transform', () => {
     expect(transObj).not.toBeUndefined();
     expect(transObj.title).toEqual(baseTitle);
   });
-  it ('should transform title into fileName', () => {
-    const date = new Date()
-    var clock = sinon.useFakeTimers(date)
+  describe('fileName dirName', () => {
+    it ('should transform title into fileName', () => {
+      const date = new Date()
+      var clock = sinon.useFakeTimers(date)
 
-    const transObj = transform(baseTitle);
-    clock.restore();
+      const transObj = transform(baseTitle);
+      clock.restore();
 
-    const dateString = date.toISOString().split('T')[0];
-    const re = new RegExp(`${dateString}-a-title.md`)
-    expect(transObj.fileName).not.toBeUndefined();
-    expect(transObj.fileName).toMatch(re);
+      const dateString = date.toISOString().split('T')[0];
+      const dirRe = new RegExp(`${dateString}-a-title`)
+      const fileRe = new RegExp(`${dateString}-a-title/index.md`)
+      expect(transObj.fileName).not.toBeUndefined();
+      expect(transObj.fileName).toMatch(fileRe);
+      expect(transObj.dirName).not.toBeUndefined();
 
-    // Test again with another date
-  })
-  it ('should transform title into fileName with other date', () => {
-    const dateString = '2017-01-01';
-    const date = new Date(dateString)
+      // Test again with another date
+    })
+    it ('should transform title into fileName with other date', () => {
+      const dateString = '2017-01-01';
+      const date = new Date(dateString)
 
-    var clock = sinon.useFakeTimers(date);
+      var clock = sinon.useFakeTimers(date);
 
-    var transObj = transform(otherTitle);
+      var transObj = transform(otherTitle);
 
-    clock.restore();
+      clock.restore();
 
-    const re = new RegExp(`${dateString}-another-little-title.md`);
-    expect(transObj.fileName).toMatch(re);
+      const dirRe = new RegExp(`${dateString}-another-little-title`);
+      const fileRe = new RegExp(`${dateString}-another-little-title/index.md`);
+      expect(transObj.dirName).toMatch(dirRe);
+      expect(transObj.fileName).toMatch(fileRe);
+    })
   })
   it ('should have date', () => {
     const date = new Date();
