@@ -11,7 +11,7 @@ describe('transform', () => {
 
   it ('should transform title into title', () => {
     // Use fake timers so that we get the same date
-    const transObj = transform(baseTitle);
+    const transObj = transform(baseTitle, '');
 
     // Asserts
     expect(transObj).not.toBeUndefined();
@@ -22,7 +22,7 @@ describe('transform', () => {
       const date = new Date()
       var clock = sinon.useFakeTimers(date)
 
-      const transObj = transform(baseTitle);
+      const transObj = transform(baseTitle, '');
       clock.restore();
 
       const dateString = date.toISOString().split('T')[0];
@@ -40,7 +40,7 @@ describe('transform', () => {
 
       var clock = sinon.useFakeTimers(date);
 
-      var transObj = transform(otherTitle);
+      var transObj = transform(otherTitle, '');
 
       clock.restore();
 
@@ -55,16 +55,16 @@ describe('transform', () => {
     const otherDate = new Date('2016-01-01');
 
     var clock = sinon.useFakeTimers(date);
-    expect(transform(baseTitle).date).toMatch(date.toISOString())
+    expect(transform(baseTitle, '').date).toMatch(date.toISOString())
     clock.restore();
 
     clock = sinon.useFakeTimers(otherDate);
-    expect(transform(baseTitle).date).toMatch(otherDate.toISOString());
+    expect(transform(baseTitle, '').date).toMatch(otherDate.toISOString());
     clock.restore();
 
   });
   it ('should have path field', () => {
-    expect(transform(baseTitle).path).toMatch('/a-title/');
-    expect(transform(otherTitle).path).toMatch('/another-little-title/');
+    expect(transform(baseTitle, '').path).toMatch('/a-title/');
+    expect(transform(otherTitle, '').path).toMatch('/another-little-title/');
   });
 });
